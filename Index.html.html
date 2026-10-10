@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#b9e3ff">
+<title>Evelyn Mora | Snoopy Blue World</title>
+<style>
+  :root{--sky:#dff3ff;--blue:#7dc8ff;--deep:#155b91;--navy:#103d65;--white:#fff;--pink:#ffdce9;--line:#a6d9ff}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:var(--navy);background:linear-gradient(180deg,#eaf8ff,#c9eaff 55%,#eaf8ff);overflow-x:hidden}
+  a{color:inherit}
+  .topbar{position:sticky;top:0;z-index:20;background:#eaf8fff2;backdrop-filter:blur(10px);border-bottom:2px solid #b8e2ff;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px clamp(14px,4vw,46px)}
+  .brand{font-weight:900;color:var(--deep);letter-spacing:.4px}
+  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{padding:9px 13px;text-decoration:none;border-radius:999px;font-weight:800;font-size:.92rem}
+  nav a:hover,nav a:focus{background:#b7e2ff}
+  .hero{max-width:1150px;margin:auto;min-height:76vh;padding:60px 22px 45px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:24px}
+  .course-tag{display:inline-block;background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-weight:900;color:#2874ac;margin:0 0 6px}
+  .eyebrow{display:inline-block;background:white;border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-weight:800;color:#2874ac}
+  h1{font-size:clamp(2.5rem,7vw,5.6rem);line-height:.98;margin:20px 0;color:#155b91;letter-spacing:-2px}
+  h1 span{color:#59aef0}
+  .hero p{font-size:1.1rem;line-height:1.7;max-width:580px}
+  .button{display:inline-block;background:#287fbd;color:white;padding:12px 19px;border-radius:16px;text-decoration:none;border:0;font-weight:900;cursor:pointer;box-shadow:0 5px 0 #155b91;transition:.15s}
+  .button:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .button:active{transform:translateY(3px);box-shadow:0 2px 0 #155b91}
+  .button.light{background:white;color:#155b91;box-shadow:0 5px 0 #9bcff2}
+  .art-card{background:#ffffffb8;border:3px solid white;border-radius:35px;padding:20px;box-shadow:0 16px 35px #4b9bd333;transform:rotate(2deg)}
+  .snoopy-art{height:350px;display:grid;place-items:center;border-radius:25px;background:radial-gradient(circle at 50% 40%,#fff 0 20%,transparent 21%),linear-gradient(145deg,#bfe7ff,#8bcaff);position:relative;overflow:hidden}
+  .sun{position:absolute;right:25px;top:25px;width:75px;height:75px;background:#fff4b8;border-radius:50%;box-shadow:0 0 0 12px #fff4b844}
+  .cloud{position:absolute;color:white;font-size:3rem;opacity:.9}
+  .cloud.one{left:20px;top:32px}.cloud.two{right:20px;bottom:40px}
+  .snoopy{position:relative;width:210px;height:180px;z-index:2}
+  .dog-body{position:absolute;width:145px;height:75px;background:white;border:3px solid #1b3650;border-radius:48% 48% 45% 45%;bottom:12px;left:30px;transform:rotate(-8deg)}
+  .dog-head{position:absolute;width:116px;height:100px;background:white;border:3px solid #1b3650;border-radius:48% 52% 48% 45%;top:14px;left:55px;transform:rotate(8deg)}
+  .ear{position:absolute;width:48px;height:78px;background:#172f48;border-radius:50%;top:28px;left:42px;transform:rotate(23deg)}
+  .nose{position:absolute;width:22px;height:16px;background:#172f48;border-radius:50%;top:54px;left:155px;z-index:4}
+  .eye{position:absolute;width:7px;height:9px;background:#172f48;border-radius:50%;top:44px;left:130px;z-index:4}
+  .collar{position:absolute;width:83px;height:14px;background:#5eb6f3;border:2px solid #172f48;border-radius:10px;top:104px;left:71px;transform:rotate(8deg);z-index:5}
+  .caption{margin:15px 4px 0;text-align:center;font-weight:900}
+  section{padding:65px 22px;scroll-margin-top:76px}
+  .section-inner{max-width:1100px;margin:auto}
+  .section-title{text-align:center;font-size:clamp(2rem,4vw,3rem);margin:0 0 12px;color:#155b91}
+  .section-sub{text-align:center;margin:0 auto 32px;max-width:650px;line-height:1.6}
+  .social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .social-card{background:#ffffffc9;border:2px solid white;border-radius:25px;padding:25px 18px;text-align:center;text-decoration:none;box-shadow:0 10px 24px #478ac522;transition:.2s}
+  .social-card:hover{transform:translateY(-6px) rotate(-1deg);border-color:#7dc8ff}
+  .social-icon{width:65px;height:65px;margin:0 auto 12px;border-radius:22px;background:#c8eaff;display:grid;place-items:center;font-size:2rem}
+  .social-card h3{margin:8px 0;color:#155b91}.social-card p{overflow-wrap:anywhere;font-size:.9rem;color:#47718f}
+  #juegos{background:#bfe5ff99;border-top:2px dashed #8ccfff;border-bottom:2px dashed #8ccfff}
+  .games-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .game{background:#fff;border:2px solid #d3edff;border-radius:26px;padding:22px;box-shadow:0 10px 22px #367ab21c}
+  .game h3{margin:0 0 8px;color:#155b91;font-size:1.35rem}.game p{line-height:1.5}
+  .score{font-weight:900;color:#287fbd}
+  .play-area{background:#eaf8ff;border-radius:18px;padding:16px;margin-top:12px;text-align:center}
+  .star-button{font-size:2.3rem;border:0;background:white;border-radius:18px;padding:8px 15px;cursor:pointer;box-shadow:0 4px 0 #a9d7f7;margin:5px}
+  .star-button:hover{transform:scale(1.06)}
+  .memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:330px;margin:12px auto}
+  .memory-tile{min-height:60px;font-size:1.6rem;background:#a9dcff;border:0;border-radius:14px;cursor:pointer}
+  .memory-tile.revealed,.memory-tile.matched{background:white;outline:2px solid #79c5f8}
+  .rps-buttons{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+  .rps-buttons button{font-size:1.7rem;background:white;border:2px solid #b8e2ff;border-radius:15px;padding:10px 14px;cursor:pointer}
+  .footer{text-align:center;padding:28px 18px;color:#47718f;font-weight:700}
+  .sakura{position:fixed;pointer-events:none;z-index:-1;opacity:.6;font-size:20px;animation:float 10s linear infinite}
+  @keyframes float{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(300deg)}}
+  @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:38px}.art-card{max-width:450px;width:100%;margin:auto}.snoopy-art{height:290px}.social-grid{grid-template-columns:1fr}.games-grid{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}nav{width:100%}nav a{font-size:.85rem;padding:8px 10px}}
+</style>
+</head>
+<body>
+<div class="sakura" style="left:8%;animation-delay:-2s">✿</div><div class="sakura" style="left:28%;animation-delay:-7s">🌸</div><div class="sakura" style="left:72%;animation-delay:-4s">✿</div><div class="sakura" style="left:91%;animation-delay:-9s">🌸</div>
+<header class="topbar">
+  <div class="brand">☁️ EVELYN'S BLUE WORLD</div>
+  <nav aria-label="Navegación principal">
+    <a href="#inicio">Inicio</a><a href="#redes">Mis redes</a><a href="#juegos">🎮 Juegos</a>
+  </nav>
+</header>
+<main>
+  <section class="hero" id="inicio">
+    <div>
+      <span class="eyebrow">🌸 Blue Theme · Japón 🌸</span>
+      <h1>Hola, soy<br><span>Evelyn Mora</span> ♡</h1>
+      <p class="course-tag">📘 Curso: 2B</p>
+      <p>Bienvenido a mi pequeño mundo azul, inspirado en Snoopy, los cielos tranquilos y la ternura japonesa. Explora mis redes y quédate a jugar un rato. ¡No hagas trampa, te estoy viendo! 🐾</p>
+      <a class="button" href="#juegos">Entrar a los juegos 🎮</a>
+      <a class="button light" href="#redes">Mis redes sociales</a>
+    </div>
+    <div class="art-card">
+      <div class="snoopy-art" role="img" aria-label="Ilustración decorativa de un perrito blanco estilo Snoopy bajo un cielo azul">
+        <div class="sun"></div><div class="cloud one">☁</div><div class="cloud two">☁</div>
+        <div class="snoopy"><div class="ear"></div><div class="dog-body"></div><div class="dog-head"></div><div class="eye"></div><div class="nose"></div><div class="collar"></div></div>
+      </div>
+      <div class="caption">☁️ Snoopy vibes & blue skies ☁️</div>
+    </div>
+  </section>
+
+  <section id="redes">
+    <div class="section-inner">
+      <h2 class="section-title">Mis redes sociales 💌</h2>
+      <p class="section-sub">Toca cualquiera de estas tarjetas y te llevará directamente a mi perfil o al chat. Tres cuadritos, cero laberintos.</p>
+      <div class="social-grid">
+        <a class="social-card" href="https://www.tiktok.com/@ely_863?_r=1&_t=ZS-9AQWArH34XX" target="_blank" rel="noopener noreferrer">
+          <div class="social-icon">♪</div><h3>TikTok</h3><p>@ely_863</p><span class="button">Abrir TikTok ↗</span>
+        </a>
+        <a class="social-card" href="https://www.instagram.com/elyn_klz1?dlrf=MTY4bXQ0c3p2aXY0cw==" target="_blank" rel="noopener noreferrer">
+          <div class="social-icon">📸</div><h3>Instagram</h3><p>@elyn_klz1</p><span class="button">Abrir Instagram ↗</span>
+        </a>
+        <a class="social-card" href="https://wa.me/593979891630" target="_blank" rel="noopener noreferrer">
+          <div class="social-icon">💬</div><h3>WhatsApp</h3><p>+593 97 989 1630</p><span class="button">Enviar mensaje ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="juegos">
+    <div class="section-inner">
+      <h2 class="section-title">🎮 Rincón de juegos</h2>
+      <p class="section-sub">Jueguitos rápidos para matar el aburrimiento. Pulsa los botones y juega aquí mismo, sin salir de la página.</p>
+      <div class="games-grid">
+        <article class="game">
+          <h3>⭐ 1. Atrapa las estrellas</h3>
+          <p>Pulsa la estrella tantas veces como puedas. Tu misión es conseguir 10 puntos.</p>
+          <div class="play-area">
+            <div class="score">Puntos: <span id="starScore">0</span> / 10</div>
+            <button class="star-button" id="starBtn" type="button" aria-label="Atrapar estrella">⭐</button>
+            <p id="starMessage" aria-live="polite">¡Empieza a atrapar estrellas!</p>
+            <button class="button light" id="starReset" type="button">Reiniciar</button>
+          </div>
+        </article>
+        <article class="game">
+          <h3>🌸 2. Memoria de parejas</h3>
+          <p>Encuentra las parejas iguales. Toca dos cartas por turno.</p>
+          <div class="play-area">
+            <div class="score">Movimientos: <span id="moves">0</span></div>
+            <div class="memory-grid" id="memoryGrid" aria-label="Juego de memoria"></div>
+            <p id="memoryMessage" aria-live="polite">Encuentra las 4 parejas.</p>
+            <button class="button light" id="memoryReset" type="button">Mezclar y reiniciar</button>
+          </div>
+        </article>
+        <article class="game">
+          <h3>✊ 3. Piedra, papel o tijera</h3>
+          <p>Desafía a la computadora. A ver si tienes suerte, Evelyn.</p>
+          <div class="play-area">
+            <div class="rps-buttons">
+              <button type="button" data-choice="piedra" aria-label="Piedra">✊</button>
+              <button type="button" data-choice="papel" aria-label="Papel">✋</button>
+              <button type="button" data-choice="tijera" aria-label="Tijera">✌️</button>
+            </div>
+            <p id="rpsResult" aria-live="polite">Elige tu jugada.</p>
+            <div class="score">Tú: <span id="youScore">0</span> · Computadora: <span id="cpuScore">0</span></div>
+            <button class="button light" id="rpsReset" type="button">Reiniciar marcador</button>
+          </div>
+        </article>
+        <article class="game">
+          <h3>💙 4. Mensaje de la suerte</h3>
+          <p>Una pequeña fortuna al estilo japonés para tu día.</p>
+          <div class="play-area">
+            <div style="font-size:3rem">🎐</div>
+            <p id="fortuneText" aria-live="polite">Tu mensaje bonito está esperando...</p>
+            <button class="button" id="fortuneBtn" type="button">Descubrir mi suerte ✨</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">Hecho con 💙 para Evelyn Mora · 青い世界 · Snoopy-inspired fan page</footer>
+<script>
+  // Atrapa las estrellas
+  let starScore = 0;
+  const starScoreEl = document.getElementById('starScore');
+  const starMessage = document.getElementById('starMessage');
+  document.getElementById('starBtn').addEventListener('click', () => {
+    if (starScore < 10) starScore++;
+    starScoreEl.textContent = starScore;
+    starMessage.textContent = starScore === 10 ? '¡Ganaste! ¡Eres la reina de las estrellas! 🌟' : ['¡Bien ahí! 💙','¡Sigue, sigue! ✨','Snoopy estaría orgulloso 🐾'][Math.floor(Math.random()*3)];
+  });
+  document.getElementById('starReset').addEventListener('click', () => {starScore=0;starScoreEl.textContent='0';starMessage.textContent='¡Empieza a atrapar estrellas!';});
+
+  // Memoria
+  const symbols = ['🐶','🌸','🍙','🩵','🐶','🌸','🍙','🩵'];
+  const grid = document.getElementById('memoryGrid');
+  let first = null, lock = false, matches = 0, moves = 0, timer = null;
+  function setupMemory(){
+    clearTimeout(timer); first=null;lock=false;matches=0;moves=0;
+    document.getElementById('moves').textContent='0';
+    document.getElementById('memoryMessage').textContent='Encuentra las 4 parejas.';
+    grid.innerHTML='';
+    [...symbols].sort(()=>Math.random()-.5).forEach((symbol,index)=>{
+      const b=document.createElement('button');b.className='memory-tile';b.type='button';b.textContent='❔';b.dataset.symbol=symbol;b.dataset.index=index;
+      b.setAttribute('aria-label','Carta oculta');
+      b.addEventListener('click',()=>flipCard(b));
+      grid.appendChild(b);
+    });
+  }
+  function flipCard(card){
+    if(lock||card.classList.contains('matched')||card===first)return;
+    card.textContent=card.dataset.symbol;card.classList.add('revealed');card.setAttribute('aria-label',card.dataset.symbol);
+    if(!first){first=card;return;}
+    moves++;document.getElementById('moves').textContent=moves;
+    if(first.dataset.symbol===card.dataset.symbol){
+      first.classList.add('matched');card.classList.add('matched');first.classList.remove('revealed');card.classList.remove('revealed');matches++;first=null;
+      if(matches===4)document.getElementById('memoryMessage').textContent='¡Las encontraste todas! 🥳';
+    }else{
+      lock=true;const old=first;first=null;
+      timer=setTimeout(()=>{old.textContent='❔';card.textContent='❔';old.classList.remove('revealed');card.classList.remove('revealed');old.setAttribute('aria-label','Carta oculta');card.setAttribute('aria-label','Carta oculta');lock=false;},750);
+    }
+  }
+  document.getElementById('memoryReset').addEventListener('click',setupMemory);setupMemory();
+
+  // Piedra, papel o tijera
+  let you=0,cpu=0;
+  const options=['piedra','papel','tijera'];
+  const emoji={piedra:'✊',papel:'✋',tijera:'✌️'};
+  document.querySelectorAll('[data-choice]').forEach(btn=>btn.addEventListener('click',()=>{
+    const user=btn.dataset.choice, computer=options[Math.floor(Math.random()*3)];
+    let result;
+    if(user===computer)result='¡Empate!';
+    else if((user==='piedra'&&computer==='tijera')||(user==='papel'&&computer==='piedra')||(user==='tijera'&&computer==='papel')){result='¡Ganaste esta ronda! 💙';you++;}
+    else{result='La computadora gana esta ronda 😼';cpu++;}
+    document.getElementById('rpsResult').textContent=`Tú ${emoji[user]} vs ${emoji[computer]} Computadora. ${result}`;
+    document.getElementById('youScore').textContent=you;document.getElementById('cpuScore').textContent=cpu;
+  }));
+  document.getElementById('rpsReset').addEventListener('click',()=>{you=0;cpu=0;document.getElementById('youScore').textContent='0';document.getElementById('cpuScore').textContent='0';document.getElementById('rpsResult').textContent='Elige tu jugada.';});
+
+  // Mensajes de suerte
+  const fortunes=[
+    'Hoy algo pequeño te va a sacar una sonrisa. 🌸',
+    'Tu paciencia te llevará más lejos de lo que imaginas. 🎐',
+    'Un día azul también puede traer grandes sorpresas. ☁️',
+    'Recuerda descansar: hasta Snoopy necesita una siesta. 🐶',
+    'Tu energía bonita se contagia. Comparte un poquito de ella. 💙',
+    '新しい始まり — cada día es una nueva oportunidad. ✨',
+    'Hoy es buen día para intentarlo otra vez. 頑張って! 🌟'
+  ];
+  document.getElementById('fortuneBtn').addEventListener('click',()=>{document.getElementById('fortuneText').textContent=fortunes[Math.floor(Math.random()*fortunes.length)];});
+</script>
+</body>
+</html>
